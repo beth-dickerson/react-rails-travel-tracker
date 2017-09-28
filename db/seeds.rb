@@ -7,10 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-20.times do
-  Location.create(
-    name: "#{Faker::HitchhikersGuideToTheGalaxy.planet}",
-    people: "#{Faker::HitchhikersGuideToTheGalaxy.specie}",
-    locale: "#{Faker::HitchhikersGuideToTheGalaxy.location}"
+5.times do
+  Venue.create!(
+    name: "#{Faker::Cat.name}",
+    address: "#{Faker::Space.galaxy}",
+    phone: "#{Faker::PhoneNumber.phone_number}",
+    url: "#{Faker::Internet.url}",
+    photo:"#{Faker::Avatar.image}"
   )
 end

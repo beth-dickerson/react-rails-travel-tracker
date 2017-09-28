@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
-import LocationsIndexContainer from './containers/locationsIndexContainer';
-import LocationShowContainer from './containers/locationShowContainer';
+import VenuesIndexContainer from './containers/VenuesIndexContainer';
+import VenueShowContainer from './containers/venueShowContainer';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,9 +16,9 @@ class App extends React.Component {
     return (
       <Router history={browserHistory}>
         <Route path='/' >
-          <IndexRoute component={LocationsIndexContainer} />
-          <Route path="/locations" component={LocationsIndexContainer}/>
-          <Route path="/locations/:id" component={LocationShowContainer}/>
+          <IndexRoute component={VenuesIndexContainer} />
+          <Route path="/venues" component={VenuesIndexContainer}/>
+          <Route path="/venues/:id" component={VenueShowContainer}/>
         </Route>
       </Router>
     );
