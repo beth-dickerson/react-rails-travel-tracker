@@ -16,3 +16,12 @@ require 'faker'
     photo:"#{Faker::Avatar.image}"
   )
 end
+
+3.times do
+  Review.create!(
+    title: "#{Faker::Dessert.variety}",
+    rating: "***",
+    content: "#{Faker::Coffee.notes}",
+    venue_id: 1
+  )
+end

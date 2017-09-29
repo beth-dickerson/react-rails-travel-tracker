@@ -5,7 +5,15 @@ class Api::V1::VenuesController < ApplicationController
   end
 
   def show
-    render json: Venue.find(params[:id])
+    @venue = Venue.find(params[:id])
+    @reviews = @venue.reviews
+    render json: { venue: @venue, reviews: @venue.reviews }
+  end
+
+
+  def new
+    @venue = Venue.new
+    render json: @venue
   end
 
   def create
@@ -31,7 +39,7 @@ class Api::V1::VenuesController < ApplicationController
   private
 
   def venue_params
-    params.require(:venue).permit(:name, :address)
+    params.require(:venue).permit(:name, :address, :phone, :url, :photo)
   end
 
 end
