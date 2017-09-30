@@ -7,11 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-Venue.destroy_all
-Review.destroy_all
 
-5.times do
-  Venue.create!(
+
+20.times do
+  Venue.find_or_create_by!(
     name: "#{Faker::Cat.name}",
     address: "#{Faker::Space.galaxy}",
     phone: "#{Faker::PhoneNumber.phone_number}",
@@ -21,10 +20,10 @@ Review.destroy_all
 end
 
 3.times do
-  Review.create!(
+  Review.find_or_create_by!(
     title: "#{Faker::Dessert.variety}",
     rating: "***",
     content: "#{Faker::Coffee.notes}",
-    venue_id: 1
+    venue_id: 6
   )
 end
