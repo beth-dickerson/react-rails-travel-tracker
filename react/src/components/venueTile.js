@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Venue = (props) => {
+const VenueTile = (props) => {
   return (
     <div>
       <p>{props.name}</p>
@@ -12,4 +12,4 @@ const Venue = (props) => {
   )
 }
 
-export default Venue;
+export default VenueTile;

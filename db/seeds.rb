@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+Venue.destroy_all
+Review.destroy_all
+
 5.times do
   Venue.create!(
     name: "#{Faker::Cat.name}",

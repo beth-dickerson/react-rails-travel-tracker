@@ -1,4 +1,5 @@
 class Api::V1::VenuesController < ApplicationController
+    skip_before_action :verify_authenticity_token
   def index
       @venues = Venue.all
       render json: @venues
@@ -17,8 +18,13 @@ class Api::V1::VenuesController < ApplicationController
   end
 
   def create
-      @venue = Venue.create(venue_params)
-      render json: @venue
+    data = JSON.parse(request.body.read)
+    @venue = Venue.create(name: data["venue"]["name"], address: data["venue"]["address"], phone: data["venue"]["phone"], url: data["venue"]["url"], photo: data["venue"]["photo"])
+    render json: @venue
+    #read the data
+    #persist the goal with the read data
+    #use the current_user to save the goal's user
+    #return the json of the newly created goal
   end
 
   def update
