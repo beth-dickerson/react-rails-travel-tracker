@@ -17,6 +17,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'shoulda'
   gem 'valid_attribute'
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
+  gem 'gem-that-requires-env-variables'
 end
 
 group :test do
