@@ -1,4 +1,5 @@
 source 'https://rubygems.org/'
+ruby '2.4.0'
 
 gem 'rails', '5.0.5'
 gem 'pg', '~> 0.15'
@@ -7,6 +8,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'listen'
 gem 'faker'
+gem 'puma'
+
 group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
