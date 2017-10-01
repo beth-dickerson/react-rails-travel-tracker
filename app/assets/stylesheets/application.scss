@@ -1,9 +1,26 @@
 // @import "*";
 body {
-  background-color: #000000;
-  color: #C01E61;
+  // background-color: #000000;
+  background: url('/shimmy.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  color: white;
   text-align: center;
 }
-.title {
-  color: #6C6414;
+// .title {
+//   color: #6C6414;
+// }
+
+img {
+  width: 150px;
+  height: 175px;
+  margin-bottom: 10px;
+  max-height: 75%;
+  max-width: 75%;
+}
+
+.pageTitle {
+  text-shadow: 4px 3px #795548;
 }

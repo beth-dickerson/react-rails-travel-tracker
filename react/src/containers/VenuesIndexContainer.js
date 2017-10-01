@@ -3,6 +3,15 @@ import { Link } from 'react-router';
 import VenueTile from '../components/venueTile';
 import VenueForm from '../components/venueForm';
 
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {GridList, GridTile} from 'material-ui/GridList';
+import Divider from 'material-ui/Divider';
+import Paper from 'material-ui/Paper';
+import AppBar from 'material-ui/AppBar';
+
+
 class VenuesIndexContainer extends Component {
   constructor(props) {
     super(props);
@@ -138,36 +147,77 @@ class VenuesIndexContainer extends Component {
 
 
   render() {
+    let styles = {
+      root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around'
+      },
+      gridList: {
+        width: 550,
+        height: 600,
+        overflowY: 'auto',
+      },
+    };
     let venueComponent =
       this.state.venues.map((venue) => {
         return(
           <Link to={`/venues/${venue.id}`} key={venue.id}>
-            <VenueTile
-              key={venue.id}
-              id={venue.id}
-              photo={venue.photo}
-              name={venue.name}
-            />
+            <div>
+              <GridTile>
+                <VenueTile
+                  key={venue.id}
+                  id={venue.id}
+                  photo={venue.photo}
+                  name={venue.name}
+                />
+              </GridTile>
+            </div>
           </Link>
         )
       })
     return (
       <div>
-      <h1> S H I M M Y </h1>
-      {venueComponent}
-      <VenueForm
-        handleNameChange={this.handleNameChange}
-        handleAddressChange={this.handleAddressChange}
-        handlePhoneChange={this.handlePhoneChange}
-        handleUrlChange={this.handleUrlChange}
-        handlePhotoChange={this.handlePhotoChange}
-        handleFormSubmit={this.handleFormSubmit}
-        nameContent={this.state.venueName}
-        addressContent={this.state.venueAddress}
-        phoneContent={this.state.venuePhone}
-        urlContent={this.state.venueUrl}
-        photoContent={this.state.venuePhoto}
-      />
+        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+          <div style={styles.root}>
+            <AppBar
+             title=" S H I M M Y "
+             iconClassNameRight="muidocs-icon-navigation-expand-more"
+             style={{backgroundColor: '#FFC400'}}
+            />
+
+            <Paper zDepth={5} style={{
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                                justifyContent: 'space-around',
+                                backgroundColor: 'none',
+                              }}
+            >
+            <GridList
+              cellHeight={180}
+              style={styles.gridList}
+            >
+            {venueComponent}
+
+            </GridList>
+            <Divider />
+
+            <VenueForm
+              handleNameChange={this.handleNameChange}
+              handleAddressChange={this.handleAddressChange}
+              handlePhoneChange={this.handlePhoneChange}
+              handleUrlChange={this.handleUrlChange}
+              handlePhotoChange={this.handlePhotoChange}
+              handleFormSubmit={this.handleFormSubmit}
+              nameContent={this.state.venueName}
+              addressContent={this.state.venueAddress}
+              phoneContent={this.state.venuePhone}
+              urlContent={this.state.venueUrl}
+              photoContent={this.state.venuePhoto}
+            />
+            </Paper>
+          </div>
+        </MuiThemeProvider>
       </div>
     );
   }
