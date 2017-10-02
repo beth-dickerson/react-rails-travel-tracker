@@ -9,7 +9,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {GridList, GridTile} from 'material-ui/GridList';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
-import AppBar from 'material-ui/AppBar';
 
 
 class VenuesIndexContainer extends Component {
@@ -180,12 +179,6 @@ class VenuesIndexContainer extends Component {
       <div>
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <div style={styles.root}>
-            <AppBar
-             title=" S H I M M Y "
-             iconClassNameRight="muidocs-icon-navigation-expand-more"
-             style={{backgroundColor: '#FFC400'}}
-            />
-
             <Paper zDepth={5} style={{
                                 display: 'flex',
                                 flexWrap: 'wrap',
@@ -216,6 +209,7 @@ class VenuesIndexContainer extends Component {
               photoContent={this.state.venuePhoto}
             />
             </Paper>
+            <iframe width="550" height="473" frameBorder="0" src={`https://www.google.com/maps/embed/v1/search?q=philadelphia%20dancing%20club&key=AIzaSyB5KSiNWNW318XVycsRXfNYFjZNyz4IOa0`} allowFullScreen></iframe>
           </div>
         </MuiThemeProvider>
       </div>

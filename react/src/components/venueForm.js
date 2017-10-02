@@ -18,7 +18,7 @@ const VenueForm = (props) => {
       style={{
       height: 600,
       width: 400,
-      
+
       }}
     >
       <Card style={{
@@ -78,7 +78,7 @@ const VenueForm = (props) => {
           value={props.photoContent}
         />
         <Divider />
-        <RaisedButton label="Add Venue" secondary={true} onClick={props.handleFormSubmit}/>
+        <RaisedButton label="Add Venue" style={{backgroundColor: '#FFC400'}} onClick={props.handleFormSubmit}/>
       </Card>
     </Paper>
 

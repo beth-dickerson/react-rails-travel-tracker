@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import UserTextField from '../components/UserTextField';
 import Selector from '../components/Selector';
 
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Card} from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
+import TextField from 'material-ui/TextField';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
 
 const ReviewForm = (props) => {
   const style = {
@@ -13,6 +15,17 @@ const ReviewForm = (props) => {
     height: 100,
     width: 100
   };
+
+  let optionElements= props.starOptions.map(stars => {
+      return (
+        <div key={stars}>
+        <MenuItem
+          value={stars} primaryText={stars}
+          onChange={props.handlerFunction} />
+        </div>
+      );
+  })
+
     return (
       <div className="ReviewForm">
       <Paper zDepth={5}
@@ -29,28 +42,31 @@ const ReviewForm = (props) => {
           backgroundColor: 'none',
           }}
         >
-            <UserTextField
-                value={props.nameField}
-                label='Title:'
-                name='title'
-                handleFunction={props.handleNameFieldChange}
+            <TextField
+              style={style} underlineShow={false}
+              value={props.titleField}
+              hintText='Title:'
+              name='title'
+              onChange={props.handleTitleFieldChange}
             />
             <Divider />
-            <Selector
-                options={props.starOptions}
-                label='rating:'
-                selectedOption={props.starSelected}
-                handlerFunction={props.handleRatingChange}
+            <DropDownMenu
+              onChange={props.handleRatingChange}
+              style={{ width: 200 }}
+            >
+              {optionElements}
+            </DropDownMenu>
+
+            <Divider />
+            <TextField
+              style={style} underlineShow={false}
+              value={props.textContent}
+              hintText='Review:'
+              name='review'
+              onChange={props.handleUserTextFieldsChange}
             />
             <Divider />
-            <UserTextField
-                value={props.textContent}
-                label='Review:'
-                name='review'
-                handleFunction={props.handleUserTextFieldsChange}
-            />
-            <Divider />
-            <RaisedButton label="Add Review" secondary={true} onClick={props.handleReviewFormSubmit} />
+            <RaisedButton label="Add Review" style={{backgroundColor: '#FFC400'}} onClick={props.handleReviewFormSubmit} />
         </Card>
       </Paper>
 

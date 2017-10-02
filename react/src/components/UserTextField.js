@@ -1,6 +1,14 @@
 import React from 'react';
+import TextField from 'material-ui/TextField';
+
 
 const UserTextField = (props) => {
+  const style = {
+    marginLeft: 20,
+    height: 100,
+    width: 100
+  };
+
   return (
     <TextField
       hintText={props.label}
