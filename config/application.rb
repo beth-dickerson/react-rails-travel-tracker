@@ -9,9 +9,6 @@ require 'dotenv/load'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
-
-HOSTNAME = ENV['HOSTNAME']
 
 module ReactRailsTravelTracker
   class Application < Rails::Application
