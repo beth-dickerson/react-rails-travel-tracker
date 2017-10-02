@@ -2,13 +2,8 @@ require_relative 'boot'
 
 require 'rails/all'
 
-require 'dotenv'
-Dotenv.load
+require 'dotenv/load'
 
-require 'dotenv/tasks'
-task mytask: :dotenv do
-    # things that require .env
-end
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
